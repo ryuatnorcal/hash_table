@@ -5,13 +5,19 @@ public class Driver {
 		String PROMPT = "=== MEARGE SORT ===";
 		String PROMPT1 = "=== HASH TABLE EXAMPLE ==="; 
 		String PROMPT2 = "=== BINARY SEARCH TREE (INSERT) ===";
+		String PROMPT3 = "=== Pre-Order Traversal ===";
+		String PROMPT4 = "=== In-Order Traversal ===";
+		String PROMPT5 = "=== Post-Order Traversal ===";
+		String PROMPT6 = "=== SEARCH A WORD ===";
 		int table_size = 12;
 		int key = 0;
 		String[] str = {"something","omg","awesine","donuts","have","eaten","by", "wizerd","and","GECO",
 						"resard","has","upset","because","the","donuts","came","from","dounkindonuts", 
 						"There","is","no","one","insure","by","GECO's","insurance","because","everyone","has",
 						"State","firm","._!SLDo9238490"};
-		
+		String[] search = {"something","Ope","java","omg","c++","awesine","donuts","redbull","the",
+						"donuts","came","google","from","yahoo"};
+		int mid = str.length / 2;
 		System.out.println(PROMPT1);	
 		/***************************************** 
 		 *  create hash table 
@@ -35,6 +41,28 @@ public class Driver {
 		 *  insert nodes in binary search tree 
 		 * ***************************************/
 		System.out.println(PROMPT2);
+		String midStr = str[mid];
+		binaryTree b = new binaryTree(midStr);
+		for(int i =0; i< 33; i++){
+			b.insert(str[i]);
+		}
+				
+		System.out.println(PROMPT3);
+		b.printPreOrderTraversal();
 		
-	}
+		System.out.println(PROMPT4);
+		b.printInOrderTraversal();
+		
+		System.out.println(PROMPT5);
+		b.printPostOrderTraversal();
+		
+		System.out.println(PROMPT6);
+		boolean consequence = false;
+		for(int i=0; i< 13; i++){
+			consequence = b.binarySearch(b,search[i]);
+			System.out.println("Searching For "+ search[i]+"\t:\t"+consequence);	
+		}
+			
+		
+	}		
 }

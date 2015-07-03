@@ -76,10 +76,5 @@ public class hashes {
 		}	
 	}
 	
-	// Now make a node tree structure 
-	// I use binary search tree because this is the most common case in my Data Structure and Algorithm 
-	public void makeAbinarySearchTree(){
-		
-	}
 	
 }
