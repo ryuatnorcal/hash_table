@@ -1,7 +1,7 @@
 package hash_table;
 
 public class hashes {
-	String PROMPT1 = "=== HASH TABLE EXAMPLE ==="; 
+	
 	node hash_table[];
 	
 	// constructor
@@ -40,22 +40,46 @@ public class hashes {
 		else{			
 			node target = hash_table[key];
 			target = target.getTail(target);
-			node new_node = new node(target, str);
-			
-			
+			node new_node = new node(target, str);						
 		}
 	}
 	
 	public void printAll(){
 		node nodes = null;
-		System.out.println(PROMPT1);		
 		for(int i=0; i<hash_table.length; i++){
 			nodes = hash_table[i];
 			System.out.println("Table # " + i );
 			nodes.printLinkedList(hash_table[i]);
 		}
 	}
-		
 	
+	public node getTargetLinkedList(int index) {
+		node selectedNode = null; 
+		selectedNode = hash_table[index];
+		return selectedNode; 
+	}
+	
+	public void mergeSort(){		
+		node head = null;
+		for(int i=0; i < hash_table.length; i++){
+			head = hash_table[i];
+			if(head.next != null){
+			// merging sort has currently problem to sort by one step 
+			// it will takes multiple steps to complete its sorting 
+				head = node.sortLinkedListByMergeSort(head);
+				head = node.sortLinkedListByMergeSort(head);
+				head = node.sortLinkedListByMergeSort(head);
+				head = node.sortLinkedListByMergeSort(head);
+				head = node.sortLinkedListByMergeSort(head);
+				hash_table[i] = head;
+			}	
+		}	
+	}
+	
+	// Now make a node tree structure 
+	// I use binary search tree because this is the most common case in my Data Structure and Algorithm 
+	public void makeAbinarySearchTree(){
+		
+	}
 	
 }
