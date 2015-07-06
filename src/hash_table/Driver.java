@@ -2,13 +2,14 @@ package hash_table;
 
 public class Driver {
 	public static void main(String args []){
-		String PROMPT = "=== MEARGE SORT ===";
-		String PROMPT1 = "=== HASH TABLE EXAMPLE ==="; 
-		String PROMPT2 = "=== BINARY SEARCH TREE (INSERT) ===";
-		String PROMPT3 = "=== Pre-Order Traversal ===";
-		String PROMPT4 = "=== In-Order Traversal ===";
-		String PROMPT5 = "=== Post-Order Traversal ===";
-		String PROMPT6 = "=== SEARCH A WORD ===";
+		String PROMPT = "\n=== MEARGE SORT ===";
+		String PROMPT1 = "\n=== HASH TABLE EXAMPLE ==="; 
+		String PROMPT2 = "\n=== BINARY SEARCH TREE (INSERT) ===";
+		String PROMPT3 = "\n=== Pre-Order Traversal ===";
+		String PROMPT4 = "\n=== In-Order Traversal ===";
+		String PROMPT5 = "\n=== Post-Order Traversal ===";
+		String PROMPT6 = "\n=== SEARCH A WORD ===";
+		String PROMPT7 = "\n=== DELETION ===";
 		int table_size = 12;
 		int key = 0;
 		String[] str = {"something","omg","awesine","donuts","have","eaten","by", "wizerd","and","GECO",
@@ -16,7 +17,8 @@ public class Driver {
 						"There","is","no","one","insure","by","GECO's","insurance","because","everyone","has",
 						"State","firm","._!SLDo9238490"};
 		String[] search = {"something","Ope","java","omg","c++","awesine","donuts","redbull","the",
-						"donuts","came","google","from","yahoo"};
+						"donuts","came","google","._!SLDo9238490","yahoo"};
+		String[] deletion = {"because","has","GECO","omg","c++","awesine","donuts"};
 		int mid = str.length / 2;
 		System.out.println(PROMPT1);	
 		/***************************************** 
@@ -62,7 +64,16 @@ public class Driver {
 			consequence = b.binarySearch(b,search[i]);
 			System.out.println("Searching For "+ search[i]+"\t:\t"+consequence);	
 		}
-			
+		
+		/****************************************** 
+		 *  deletion nodes in binary search tree 
+		 * ***************************************/
+		System.out.println(PROMPT7);
+		for(int i = 0; i< 7; i++ ){
+			b = b.delete(deletion[i]);
+			System.out.println("=== Deleting For \" "+ deletion[i]+ "\" ===");
+			b.printInOrderTraversal();
+		}
 		
 	}		
 }

@@ -17,7 +17,7 @@ public class binaryTree {
 		this.right = null;
 	}
 	
-	// this version of binary tree will only check first char of strings 
+ 
 	public void insert(String newStr){
 		
 		// if current char is smaller, it goes to left 
@@ -108,5 +108,47 @@ public class binaryTree {
 		System.out.println(str);
 	}
 	
+	public binaryTree delete(String str){
+		binaryTree root = this; 
+		root = delete(root,str);
+		return root;
+	}
 	
+	public binaryTree delete(binaryTree root, String str){
+		if(root == null)
+			return null; 		
+		if(str.equals(root.str)){
+			// there is no children left 
+			if(root.left == null && root.right == null ){
+				return null;
+			}
+			// there is a child in the root 
+			if(root.left == null ){
+				return root.right;
+			}
+			if(root.right == null){
+				return root.left; 
+			}
+			// there are 2 children in the root 
+			String small = root.smallestNode(root.right);
+			System.out.println("smallest Str "+ small);
+			root.right = delete(root.right,small);
+			return root;
+		}
+		else if (str.compareTo(root.str)<0){
+			root.left = delete(root.left,str);
+			return root;
+		}
+		else{
+			root.right = delete(root.right,str);
+			return root;
+		}		
+	}
+	
+	public String smallestNode(binaryTree root){
+		if(root.left == null )
+			return root.str;
+		else 
+			return root.smallestNode(root.left);
+	}
 }
